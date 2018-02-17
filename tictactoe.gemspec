@@ -1,16 +1,16 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "tictactoe/version"
+#require "tictactoe/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "tictactoe"
-  spec.version       = Tictactoe::VERSION
-  spec.authors       = ["cgchavar"]
-  spec.email         = ["TODO: Write your email address"]
+  spec.version       = "0.0.1"
+  spec.authors       = ["crisalm29"]
+  spec.email         = ["cris29sk8@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = "Tic Tac Toe game."
+  spec.description   = "Terminal Tic Tac Toe game for 1 player."
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
