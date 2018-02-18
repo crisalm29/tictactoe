@@ -1,11 +1,11 @@
-# abstract_player,rb
-module tictactoe.model 
-	class abstract_player
+# abstract_player.rb 
 
-		def play
-			raise NotImplementedError
-		end
+class AbstractPlayer
+
+	def play(table)
+		raise NotImplementedError
 	end
+
 end
 
 
