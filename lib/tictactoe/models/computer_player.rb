@@ -1,6 +1,6 @@
 #computer_player.rb
 
-require 'tictactoe/models/abstract_player'
+
 
 require 'matrix'
 require 'tictactoe/models/game_exceptions'
@@ -15,7 +15,6 @@ class ComputerPlayer < AbstractPlayer
 		if available_spaces(table) == 0
 			raise GameException, "Full table, can't play."
 		end
-
 
 		while played == false
 			column, row = calculate_random_position()
@@ -33,7 +32,7 @@ class ComputerPlayer < AbstractPlayer
 	def calculate_random_position()
 
 		Random.srand
-		spaces_moved = Random.rand(9)
+		spaces_moved = Random.rand(8)
 		column = (spaces_moved/3).to_i
 		row = spaces_moved%3
 		return column, row
@@ -50,7 +49,9 @@ class ComputerPlayer < AbstractPlayer
 		  	end
 		end
 
+		return counter
 	end
+
 
 
 end
