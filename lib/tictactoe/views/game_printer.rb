@@ -30,8 +30,14 @@ class GamePrinter
 				if yi == 1 || yi == 2
 					print " |"
 				end
-				print " #{table[xi][yi]}"
 
+				if table[xi][yi] == 1
+					print " X"
+				elsif  table[xi][yi] == 2
+					print " O"
+				else 
+					print "  "
+				end
 		  	end
 
 		  	print "\n"
@@ -49,15 +55,16 @@ class GamePrinter
 		result = 0
 		player = who_start
 		if player == 0
-			print "You go first!!\n\n"
+			print "\nYou go first!!\n\n You are O player\n\n"
 		end
 		if player == 1
-			print "Computer will go first!\n\n"
+			print "\nComputer will go first!\n\n You are O player\n\n"
 		end
 		
 		while result == 0
 			print_table
 			result =  @game_ctrl.check_win
+
 			if result != 0
 				break
 			end
@@ -71,6 +78,14 @@ class GamePrinter
 			end
 
 		end
+
+		if result == 2
+			print "You win!!!"
+		elsif result == 1
+			print "Computer wins"
+		else
+			print "Its a draw :( "
+		end			
 		
 	end
 
