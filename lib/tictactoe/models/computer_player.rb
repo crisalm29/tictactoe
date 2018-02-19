@@ -23,7 +23,7 @@ class ComputerPlayer < AbstractPlayer
 		played = false
 
 		if table_handler.available_spaces == 0
-			raise GameException, "Full table, can't play."
+			raise GameException, "Full table, can't play.\n"
 		end
 
 		while played == false
@@ -42,7 +42,7 @@ class ComputerPlayer < AbstractPlayer
 	def calculate_random_position()
 
 		Random.srand
-		spaces_moved = Random.rand(8)
+		spaces_moved = Random.rand(9)
 		column = (spaces_moved/3).to_i
 		row = spaces_moved%3
 		return column, row

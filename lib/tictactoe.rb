@@ -1,6 +1,11 @@
 
-require 'tictactoe/models/abstract_player'
+require 'tictactoe/views/game_printer.rb'
 
 module Tictactoe
-	puts "Hello world"
+
+	game = GamePrinter.new
+
+	game.play_game
+
+
 end

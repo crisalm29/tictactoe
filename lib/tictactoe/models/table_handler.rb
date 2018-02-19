@@ -49,11 +49,10 @@ class TableHandler
 	def check_win()
 
 
-		for i in 0..2
 
+		for i in 0..2
 			# verify columns
 			if (@table[0][i] == @table[1][i] && @table[1][i] == @table[2][i]) && @table[1][i] != 0
-
 				return @table[0][i]
 
 			end

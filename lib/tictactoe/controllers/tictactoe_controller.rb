@@ -11,23 +11,23 @@ class TictactoeController
 
 	def initialize()
 
-		@table_hdlr  = TableHandler.new(:player_one => KeyboardPlayer.new(2), :player_two =>ComputerPlayer.new(1) )
+		@table_hdlr  = TableHandler.new(:player_one => KeyboardPlayer.new(:num_id => 2), :player_two =>ComputerPlayer.new(:num_id =>1) )
 
 	end
 
 
-	def who_start()
+	def check_win
+		winner = @table_hdlr.check_win
 
+		return winner
 	end
 
-	def play_game()
+	def player_one_turn 
+		@table_hdlr.player_one_turn
+	end
 
-		while @table_hdlr.check_win
-
-			
-			
-		end
-		
+	def player_two_turn 
+		@table_hdlr.player_two_turn
 	end
 
 
