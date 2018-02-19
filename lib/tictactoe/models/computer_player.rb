@@ -5,27 +5,37 @@
 require 'matrix'
 require 'tictactoe/models/game_exceptions'
 require 'tictactoe/models/abstract_player'
+require 'tictactoe/models/table_handler'
 
 class ComputerPlayer < AbstractPlayer
 
-	def play(table)
+
+	def initialize(params = {})
+
+		@num_id = params.fetch(:num_id, 2)
+
+	end
+
+	def play(table_handler)
+
+
 
 		played = false
 
-		if available_spaces(table) == 0
+		if table_handler.available_spaces == 0
 			raise GameException, "Full table, can't play."
 		end
 
 		while played == false
 			column, row = calculate_random_position()
-			if table[column][row] == 0
-				table[column][row] = 2
+			if table_handler.table[column][row] == 0
+				table_handler.table[column][row] = @num_id
 				played = true
-				return table
+				return table_handler.table
 			end
 		end
 
-		return table
+		return table_handler.table
 
 	end
 

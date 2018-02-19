@@ -2,6 +2,7 @@ require 'tictactoe'
 require 'rspec'
 require 'mocha/api'
 require 'tictactoe/models/computer_player'
+require 'tictactoe/models/table_handler'
 
 require 'matrix'
 
@@ -11,10 +12,12 @@ RSpec.describe ComputerPlayer do
 		table = [[0,0,0],[0,0,0],[0,0,0]]
 		expected_table = [[0,0,0],[0,2,0],[0,0,0]]
 		player = ComputerPlayer.new
+		game_table = TableHandler.new( :player_one => ComputerPlayer.new, :player_two =>ComputerPlayer.new(:num_id => 1), :table => table )
+		
 
 		player.stubs(:calculate_random_position).returns([1,1])
 
-		expect( player.play(table) ).to match_array(expected_table)
+		expect( player.play(game_table) ).to match_array(expected_table)
 
 	end
 
@@ -22,11 +25,12 @@ RSpec.describe ComputerPlayer do
 		table = [[1,0,0],[0,0,2],[1,2,1]]
 		expected_table = [[1, 0, 0], [2, 0, 2], [1, 2, 1]]
 		player = ComputerPlayer.new
+		game_table = TableHandler.new( :player_one => ComputerPlayer.new, :player_two =>ComputerPlayer.new(:num_id => 1), :table => table )
 
 
 		player.stubs(:calculate_random_position).returns([1,0])
 		
-		expect( player.play(table) ).to match_array(expected_table)
+		expect(  player.play(game_table) ).to match_array(expected_table)
 
 	end
 
@@ -144,40 +148,6 @@ RSpec.describe ComputerPlayer do
 		expect( player.calculate_random_position ).to match_array(expected_table)
 
 	end
-
-
-	it "available_spaces: all available spaces" do
-		table = [[0,0,0],[0,0,0],[0,0,0]]
-		player = ComputerPlayer.new
-
-		expect( player.available_spaces(table) ).to eq(9)
-
-	end
-
-
-	it "available_spaces: none available spaces" do
-		table = [[1,2,1],[1,1,2],[2,1,2]]
-		player = ComputerPlayer.new
-
-		
-		expect( player.available_spaces(table) ).to eq(0)
-
-	end
-
-
-
-	it "available_spaces: five available spaces" do
-		table = [[1,0,1],[0,0,2],[0,1,0]]
-		player = ComputerPlayer.new
-
-		
-		expect( player.available_spaces(table) ).to eq(5)
-
-	end
-
-
-
-
 
 
 end
