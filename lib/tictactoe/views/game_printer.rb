@@ -80,15 +80,31 @@ class GamePrinter
 		end
 
 		if result == 2
-			print "You win!!!"
+			print "You win!!!\n\n"
 		elsif result == 1
-			print "Computer wins"
+			print "Computer wins\n\n"
 		else
-			print "Its a draw :( "
+			print "Its a draw :( \n\n"
 		end			
+
+		play_again
 		
 	end
 
+	def play_again
+
+		puts "Would you like to play again?(Y/N)\n"
+		input = gets.chomp()
+		 if input == "Y" || input == "y"
+		 	@game_ctrl.reset_game
+		 	play_game
+		 elsif input == "N" || input == "n"
+		 	print "Thanks for playing! Good bye...\n\n"
+		 else
+		 	play_again
+		 end
+
+	end
 
 
 end

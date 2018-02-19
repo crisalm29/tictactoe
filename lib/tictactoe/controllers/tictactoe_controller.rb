@@ -30,6 +30,10 @@ class TictactoeController
 		@table_hdlr.player_two_turn
 	end
 
+	def reset_game
+		@table_hdlr.reset_game
+	end
+
 
 
 end

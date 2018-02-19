@@ -48,7 +48,10 @@ class TableHandler
 
 	def check_win()
 
+		if available_spaces == 0
+			return -1
 
+	end
 
 		for i in 0..2
 			# verify columns
