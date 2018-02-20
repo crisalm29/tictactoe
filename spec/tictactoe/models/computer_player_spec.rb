@@ -27,7 +27,7 @@ RSpec.describe ComputerPlayer do
     game_table = TableHandler.new( :player_one => ComputerPlayer.new, :player_two =>ComputerPlayer.new(:num_id => 1), :table => table )
 
 
-    player.stubs(:calculate_random_position).returns([1,0])
+    player.stubs(:calculate_random_position).returns([1, 0])
     
     expect(  player.play(game_table) ).to match_array(expected_table)
 
@@ -35,8 +35,8 @@ RSpec.describe ComputerPlayer do
 
 
   it "calculate_random_position: expect 0,0" do
-    table = [[1,0,0],[0,0,2],[1,2,1]]
-    expected_table = [0,0]
+    table = [[1, 0, 0], [0, 0, 2], [1, 2, 1]]
+    expected_table = [0, 0]
     player = ComputerPlayer.new
 
     Random.stubs(:rand).returns(0)
@@ -47,7 +47,7 @@ RSpec.describe ComputerPlayer do
 
 
   it "calculate_random_position: expect 1,0" do
-    table = [[1,0,0],[0,0,2],[1,2,1]]
+    table = [[1, 0, 0], [0, 0, 2], [1, 2, 1]]
     expected_table = [1,0]
     player = ComputerPlayer.new
 
@@ -61,8 +61,8 @@ RSpec.describe ComputerPlayer do
 
 
   it "calculate_random_position: expect 2,0" do
-    table = [[1,0,0],[0,0,2],[1,2,1]]
-    expected_table = [2,0]
+    table = [[1, 0, 0], [0, 0, 2], [1, 2, 1]]
+    expected_table = [2, 0]
     player = ComputerPlayer.new
 
     Random.stubs(:rand).returns(2)
@@ -74,8 +74,8 @@ RSpec.describe ComputerPlayer do
 
 
   it "calculate_random_position: expect 0,1" do
-    table = [[1,0,0],[0,0,2],[1,2,1]]
-    expected_table = [0,1]
+    table = [[1, 0, 0], [0, 0, 2], [1, 2, 1]]
+    expected_table = [0, 1]
     player = ComputerPlayer.new
 
     Random.stubs(:rand).returns(3)
@@ -87,8 +87,8 @@ RSpec.describe ComputerPlayer do
 
 
   it "calculate_random_position: expect 1,1" do
-    table = [[1,0,0],[0,0,2],[1,2,1]]
-    expected_table = [1,1]
+    table = [[1, 0, 0], [0, 0, 2], [1, 2, 1]]
+    expected_table = [1, 1]
     player = ComputerPlayer.new
 
     Random.stubs(:rand).returns(4)
@@ -100,8 +100,8 @@ RSpec.describe ComputerPlayer do
 
 
   it "calculate_random_position: expect 2,1" do
-    table = [[1,0,0],[0,0,2],[1,2,1]]
-    expected_table = [2,1]
+    table = [[1, 0, 0], [0, 0, 2], [1, 2, 1]]
+    expected_table = [2, 1]
     player = ComputerPlayer.new
 
     Random.stubs(:rand).returns(5)
@@ -113,8 +113,8 @@ RSpec.describe ComputerPlayer do
 
 
   it "calculate_random_position: expect 2,0" do
-    table = [[1,0,0],[0,0,2],[1,2,1]]
-    expected_table = [2,0]
+    table = [[1, 0, 0], [0, 0, 2], [1, 2, 1]]
+    expected_table = [2, 0]
     player = ComputerPlayer.new
 
     Random.stubs(:rand).returns(6)
@@ -126,8 +126,8 @@ RSpec.describe ComputerPlayer do
 
 
   it "calculate_random_position: expect 2,1" do
-    table = [[1,0,0],[0,0,2],[1,2,1]]
-    expected_table = [2,1]
+    table = [[1, 0, 0], [0, 0, 2], [1, 2, 1]]
+    expected_table = [2, 1]
     player = ComputerPlayer.new
 
     Random.stubs(:rand).returns(7)
@@ -138,8 +138,8 @@ RSpec.describe ComputerPlayer do
 
 
   it "calculate_random_position: expect 2,2" do
-    table = [[1,0,0],[0,0,2],[1,2,1]]
-    expected_table = [2,2]
+    table = [[1, 0, 0], [0, 0, 2], [1, 2, 1]]
+    expected_table = [2, 2]
     player = ComputerPlayer.new
 
     Random.stubs(:rand).returns(8)
