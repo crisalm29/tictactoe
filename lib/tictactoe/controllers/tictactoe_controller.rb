@@ -7,32 +7,32 @@ require 'tictactoe/models/keyboard_player'
 
 class TictactoeController
 
-	attr_accessor :table_hdlr
+  attr_accessor :table_hdlr
 
-	def initialize()
+  def initialize()
 
-		@table_hdlr  = TableHandler.new(:player_one => KeyboardPlayer.new(:num_id => 2), :player_two =>ComputerPlayer.new(:num_id =>1) )
+    @table_hdlr  = TableHandler.new(:player_one => KeyboardPlayer.new(:num_id => 2), :player_two =>ComputerPlayer.new(:num_id =>1) )
 
-	end
+  end
 
 
-	def check_win
-		winner = @table_hdlr.check_win
+  def check_win
+    winner = @table_hdlr.check_win
 
-		return winner
-	end
+    return winner
+  end
 
-	def player_one_turn 
-		@table_hdlr.player_one_turn
-	end
+  def player_one_turn 
+    @table_hdlr.player_one_turn
+  end
 
-	def player_two_turn 
-		@table_hdlr.player_two_turn
-	end
+  def player_two_turn 
+    @table_hdlr.player_two_turn
+  end
 
-	def reset_game
-		@table_hdlr.reset_game
-	end
+  def reset_game
+    @table_hdlr.reset_game
+  end
 
 
 

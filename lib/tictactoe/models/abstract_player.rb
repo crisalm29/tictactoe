@@ -2,11 +2,11 @@
 
 class AbstractPlayer
 
-	attr_accessor   :num_id
+  attr_accessor   :num_id
 
-	def play(table)
-		raise NotImplementedError
-	end
+  def play(table)
+    raise NotImplementedError
+  end
 
 end
 

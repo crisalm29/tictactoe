@@ -10,57 +10,57 @@ require 'tictactoe/models/table_handler'
 class ComputerPlayer < AbstractPlayer
 
 
-	def initialize(params = {})
+  def initialize(params = {})
 
-		@num_id = params.fetch(:num_id, 2)
+    @num_id = params.fetch(:num_id, 2)
 
-	end
+  end
 
-	def play(table_handler)
+  def play(table_handler)
 
 
 
-		played = false
+    played = false
 
-		if table_handler.available_spaces == 0
-			raise GameException, "Full table, can't play.\n"
-		end
+    if table_handler.available_spaces == 0
+      raise GameException, "Full table, can't play.\n"
+    end
 
-		while played == false
-			column, row = calculate_random_position()
-			if table_handler.table[column][row] == 0
-				table_handler.table[column][row] = @num_id
-				played = true
-				return table_handler.table
-			end
-		end
+    while played == false
+      column, row = calculate_random_position()
+      if table_handler.table[column][row] == 0
+        table_handler.table[column][row] = @num_id
+        played = true
+        return table_handler.table
+      end
+    end
 
-		return table_handler.table
+    table_handler.table
 
-	end
+  end
 
-	def calculate_random_position()
+  def calculate_random_position()
 
-		Random.srand
-		spaces_moved = Random.rand(9)
-		column = (spaces_moved/3).to_i
-		row = spaces_moved%3
-		return column, row
-	end
+    Random.srand
+    spaces_moved = Random.rand(9)
+    column = (spaces_moved/3).to_i
+    row = spaces_moved%3
+    [column, row]
+  end
 
-	def available_spaces(table)
+  def available_spaces(table)
 
-		counter = 0
-		table.each_with_index do |x, xi|
-		  	x.each_with_index do |y, yi|
-		  		if y==0
-		  			counter+=1
-		  		end
-		  	end
-		end
+    counter = 0
+    table.each_with_index do |x, xi|
+        x.each_with_index do |y, yi|
+          if y==0
+            counter+=1
+          end
+        end
+    end
 
-		return counter
-	end
+    counter
+  end
 
 
 
